@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Users(models.Model):
+class Users(models.Model):  # модель данных пользователя
     email = models.EmailField(max_length=100)
     phone = models.IntegerField(verbose_name='Номер телефона')
     fam = models.CharField(max_length=100, verbose_name='Фамилия')
@@ -12,7 +12,7 @@ class Users(models.Model):
         return f'email: {self.email}, phone: {self.phone}, fam: {self.fam}, name: {self.name}, otc: {self.otc}'
 
 
-class Coords(models.Model):
+class Coords(models.Model):  # модель данных координат
     latitude = models.FloatField(max_length=25, verbose_name='Широта')
     longitude = models.FloatField(max_length=25, verbose_name='Долгота')
     height = models.IntegerField(verbose_name='Высота')
@@ -21,7 +21,7 @@ class Coords(models.Model):
         return f'Широта: {self.latitude}, долгота: {self.longitude}, высота: {self.height}'
 
 
-class Level(models.Model):   # проверить уровни
+class Level(models.Model):   # уровни сложности в зависимости от сезона
     LEVEL = [
         ('1B', '1Б'),
         ('2A', '2А'),
@@ -46,7 +46,7 @@ class Level(models.Model):   # проверить уровни
                f'весна: {self.spring}.'
 
 
-class Pereval(models.Model):
+class Pereval(models.Model):  # главная модель - перевал
 
     STATUS = [
         ('new', 'Создано'),
@@ -70,14 +70,14 @@ class Pereval(models.Model):
         return f'Перевал № {self.pk}: {self.beauty_title},{self.title} имеет статус {self.status}.'
 
 
-class Images(models.Model):
+class Images(models.Model):  # модель для обработки изображений перевалов
     title = models.CharField(max_length=200, verbose_name='Название изображения')
     date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Дата добавления')
     image = models.ImageField(upload_to='images', verbose_name='Изображение', blank=True, null=True)
     pereval = models.ForeignKey(Pereval, on_delete=models.CASCADE, related_name='images')
 
 
-class SprActivitiesTypes(models.Model):
+class SprActivitiesTypes(models.Model):  # модель для обработки способа передвижения в походе
 
     TYPE = [
         ('1', 'Пешком'),

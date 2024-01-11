@@ -1,3 +1,8 @@
+"""
+В проекте исползуется config, для создания хранилища /
+конфеденциальных данных в виртуальном окружении в файле .env.
+"""
+
 import os
 from pathlib import Path
 
@@ -53,6 +58,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Pereval_project.wsgi.application'
+
+# переменные внешнего хранилища файла .env
 
 FSTR_DB_HOST = config('FSTR_DB_HOST')
 FSTR_DB_PORT = config('FSTR_DB_PORT')

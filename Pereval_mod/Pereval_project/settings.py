@@ -1,8 +1,3 @@
-"""
-В проекте исползуется config, для создания хранилища /
-конфеденциальных данных в виртуальном окружении в файле .env.
-"""
-
 import os
 from pathlib import Path
 
@@ -59,8 +54,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Pereval_project.wsgi.application'
 
-# переменные внешнего хранилища файла .env
-
 FSTR_DB_HOST = config('FSTR_DB_HOST')
 FSTR_DB_PORT = config('FSTR_DB_PORT')
 FSTR_DB_LOGIN = config('FSTR_DB_LOGIN')
@@ -106,8 +99,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')

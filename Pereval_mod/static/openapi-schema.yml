@@ -1,0 +1,1336 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /users/:
+    get:
+      operationId: listUsers
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: fam
+        required: false
+        in: query
+        description: fam
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: otc
+        required: false
+        in: query
+        description: otc
+        schema:
+          type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Users'
+          description: ''
+      tags:
+      - users
+    post:
+      operationId: createUsers
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Users'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Users'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+      tags:
+      - users
+  /users/{id}/:
+    get:
+      operationId: retrieveUsers
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this users.
+        schema:
+          type: string
+      - name: fam
+        required: false
+        in: query
+        description: fam
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: otc
+        required: false
+        in: query
+        description: otc
+        schema:
+          type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+      tags:
+      - users
+    put:
+      operationId: updateUsers
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this users.
+        schema:
+          type: string
+      - name: fam
+        required: false
+        in: query
+        description: fam
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: otc
+        required: false
+        in: query
+        description: otc
+        schema:
+          type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Users'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Users'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+      tags:
+      - users
+    patch:
+      operationId: partialUpdateUsers
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this users.
+        schema:
+          type: string
+      - name: fam
+        required: false
+        in: query
+        description: fam
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: otc
+        required: false
+        in: query
+        description: otc
+        schema:
+          type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Users'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Users'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+          description: ''
+      tags:
+      - users
+    delete:
+      operationId: destroyUsers
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this users.
+        schema:
+          type: string
+      - name: fam
+        required: false
+        in: query
+        description: fam
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: otc
+        required: false
+        in: query
+        description: otc
+        schema:
+          type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+  /coords/:
+    get:
+      operationId: listCoords
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Coords'
+          description: ''
+      tags:
+      - coords
+    post:
+      operationId: createCoords
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Coords'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coords'
+          description: ''
+      tags:
+      - coords
+  /coords/{id}/:
+    get:
+      operationId: retrieveCoords
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this coords.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coords'
+          description: ''
+      tags:
+      - coords
+    put:
+      operationId: updateCoords
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this coords.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Coords'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coords'
+          description: ''
+      tags:
+      - coords
+    patch:
+      operationId: partialUpdateCoords
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this coords.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Coords'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Coords'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coords'
+          description: ''
+      tags:
+      - coords
+    delete:
+      operationId: destroyCoords
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this coords.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - coords
+  /level/:
+    get:
+      operationId: listLevels
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Level'
+          description: ''
+      tags:
+      - level
+    post:
+      operationId: createLevel
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Level'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Level'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Level'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Level'
+          description: ''
+      tags:
+      - level
+  /level/{id}/:
+    get:
+      operationId: retrieveLevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this level.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Level'
+          description: ''
+      tags:
+      - level
+    put:
+      operationId: updateLevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this level.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Level'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Level'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Level'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Level'
+          description: ''
+      tags:
+      - level
+    patch:
+      operationId: partialUpdateLevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this level.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Level'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Level'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Level'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Level'
+          description: ''
+      tags:
+      - level
+    delete:
+      operationId: destroyLevel
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this level.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - level
+  /images/:
+    get:
+      operationId: listImages
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Images'
+          description: ''
+      tags:
+      - images
+    post:
+      operationId: createImages
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Images'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Images'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Images'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+          description: ''
+      tags:
+      - images
+  /images/{id}/:
+    get:
+      operationId: retrieveImages
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this images.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+          description: ''
+      tags:
+      - images
+    put:
+      operationId: updateImages
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this images.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Images'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Images'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Images'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+          description: ''
+      tags:
+      - images
+    patch:
+      operationId: partialUpdateImages
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this images.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Images'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Images'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Images'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+          description: ''
+      tags:
+      - images
+    delete:
+      operationId: destroyImages
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this images.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - images
+  /perevals/:
+    get:
+      operationId: listPerevals
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: beauty_title
+        required: false
+        in: query
+        description: beauty_title
+        schema:
+          type: string
+      - name: title
+        required: false
+        in: query
+        description: title
+        schema:
+          type: string
+      - name: add_time
+        required: false
+        in: query
+        description: add_time
+        schema:
+          type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Perevals'
+          description: ''
+      tags:
+      - perevals
+    post:
+      operationId: createPerevals
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perevals'
+          description: ''
+      tags:
+      - perevals
+  /perevals/{id}/:
+    get:
+      operationId: retrievePerevals
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this perevals.
+        schema:
+          type: string
+      - name: beauty_title
+        required: false
+        in: query
+        description: beauty_title
+        schema:
+          type: string
+      - name: title
+        required: false
+        in: query
+        description: title
+        schema:
+          type: string
+      - name: add_time
+        required: false
+        in: query
+        description: add_time
+        schema:
+          type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perevals'
+          description: ''
+      tags:
+      - perevals
+    put:
+      operationId: updatePerevals
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this perevals.
+        schema:
+          type: string
+      - name: beauty_title
+        required: false
+        in: query
+        description: beauty_title
+        schema:
+          type: string
+      - name: title
+        required: false
+        in: query
+        description: title
+        schema:
+          type: string
+      - name: add_time
+        required: false
+        in: query
+        description: add_time
+        schema:
+          type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perevals'
+          description: ''
+      tags:
+      - perevals
+    patch:
+      operationId: partialUpdatePerevals
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this perevals.
+        schema:
+          type: string
+      - name: beauty_title
+        required: false
+        in: query
+        description: beauty_title
+        schema:
+          type: string
+      - name: title
+        required: false
+        in: query
+        description: title
+        schema:
+          type: string
+      - name: add_time
+        required: false
+        in: query
+        description: add_time
+        schema:
+          type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Perevals'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Perevals'
+          description: ''
+      tags:
+      - perevals
+    delete:
+      operationId: destroyPerevals
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this perevals.
+        schema:
+          type: string
+      - name: beauty_title
+        required: false
+        in: query
+        description: beauty_title
+        schema:
+          type: string
+      - name: title
+        required: false
+        in: query
+        description: title
+        schema:
+          type: string
+      - name: add_time
+        required: false
+        in: query
+        description: add_time
+        schema:
+          type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - perevals
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        fam:
+          type: string
+          maxLength: 128
+        name:
+          type: string
+          maxLength: 128
+        otc:
+          type: string
+          maxLength: 128
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        phone:
+          type: integer
+      required:
+      - fam
+      - name
+      - otc
+      - email
+      - phone
+    Coords:
+      type: object
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+        height:
+          type: integer
+      required:
+      - latitude
+      - longitude
+      - height
+    Level:
+      type: object
+      properties:
+        summer:
+          enum:
+          - 1B
+          - 2A
+          - 2B
+          - 3A
+          - 3B
+          - 4A
+          - 4B
+          - 5A
+          - 5B
+          - 6A
+          - 6B
+          type: string
+        autumn:
+          enum:
+          - 1B
+          - 2A
+          - 2B
+          - 3A
+          - 3B
+          - 4A
+          - 4B
+          - 5A
+          - 5B
+          - 6A
+          - 6B
+          type: string
+        winter:
+          enum:
+          - 1B
+          - 2A
+          - 2B
+          - 3A
+          - 3B
+          - 4A
+          - 4B
+          - 5A
+          - 5B
+          - 6A
+          - 6B
+          type: string
+        spring:
+          enum:
+          - 1B
+          - 2A
+          - 2B
+          - 3A
+          - 3B
+          - 4A
+          - 4B
+          - 5A
+          - 5B
+          - 6A
+          - 6B
+          type: string
+      required:
+      - summer
+      - autumn
+      - winter
+      - spring
+    Images:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 200
+        date_added:
+          type: string
+          format: date-time
+          readOnly: true
+        image:
+          type: string
+          format: uri
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)(?:\\\
+            .(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)){3}|\\[[0-9a-f:.]+\\\
+            ]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\\
+            .(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+            .?|localhost))(?::[0-9]{1,5})?(?:[/?#][^\\s]*)?\\z"
+      required:
+      - title
+      - image
+    Perevals:
+      type: object
+      properties:
+        beauty_title:
+          type: string
+          maxLength: 200
+        title:
+          type: string
+          maxLength: 200
+        other_titles:
+          type: string
+          maxLength: 200
+        connect:
+          type: string
+          maxLength: 200
+        add_time:
+          type: string
+          format: date-time
+          readOnly: true
+        level:
+          type: object
+          properties:
+            summer:
+              enum:
+              - 1B
+              - 2A
+              - 2B
+              - 3A
+              - 3B
+              - 4A
+              - 4B
+              - 5A
+              - 5B
+              - 6A
+              - 6B
+              type: string
+            autumn:
+              enum:
+              - 1B
+              - 2A
+              - 2B
+              - 3A
+              - 3B
+              - 4A
+              - 4B
+              - 5A
+              - 5B
+              - 6A
+              - 6B
+              type: string
+            winter:
+              enum:
+              - 1B
+              - 2A
+              - 2B
+              - 3A
+              - 3B
+              - 4A
+              - 4B
+              - 5A
+              - 5B
+              - 6A
+              - 6B
+              type: string
+            spring:
+              enum:
+              - 1B
+              - 2A
+              - 2B
+              - 3A
+              - 3B
+              - 4A
+              - 4B
+              - 5A
+              - 5B
+              - 6A
+              - 6B
+              type: string
+          required:
+          - summer
+          - autumn
+          - winter
+          - spring
+        user:
+          type: object
+          properties:
+            fam:
+              type: string
+              maxLength: 128
+            name:
+              type: string
+              maxLength: 128
+            otc:
+              type: string
+              maxLength: 128
+            email:
+              type: string
+              format: email
+              maxLength: 254
+            phone:
+              type: integer
+          required:
+          - fam
+          - name
+          - otc
+          - email
+          - phone
+        coord:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+            height:
+              type: integer
+          required:
+          - latitude
+          - longitude
+          - height
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+                maxLength: 200
+              date_added:
+                type: string
+                format: date-time
+                readOnly: true
+              image:
+                type: string
+                format: uri
+                pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)(?:\\\
+                  .(?:0|25[0-5]|2[0-4][0-9]|1[0-9]?[0-9]?|[1-9][0-9]?)){3}|\\[[0-9a-f:.]+\\\
+                  ]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF\
+                  0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                  -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::[0-9]{1,5})?(?:[/?#][^\\\
+                  s]*)?\\z"
+            required:
+            - title
+            - image
+      required:
+      - beauty_title
+      - title
+      - other_titles
+      - connect
+      - level
+      - user
+      - coord
